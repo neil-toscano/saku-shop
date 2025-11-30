@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run prisma:deploy && next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "prisma:deploy": "npx prisma migrate deploy && pnpm prisma generate"
   },
   "dependencies": {
     "@paypal/paypal-js": "^9.0.1",

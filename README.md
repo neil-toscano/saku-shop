@@ -9,7 +9,7 @@ First, run the development server:
 2. pnpm install
 3. modificar .env-template con .env conla conexion a la db
 4. pnpm prisma migrate dev
-5. para desarrollo ejecutar seed ``pnpm prisma migrate dev``
+5. para desarrollo ejecutar para sincronizar con db ``pnpm prisma migrate dev``
 5. para desarrollo ejecutar client ``pnpm prisma generate``
 6. ```pnpm prisma db seed```
 6. pnpm run dev
