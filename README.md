@@ -4,15 +4,16 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+````bash
+1. clonar proyecto
+2. pnpm install
+3. modificar .env-template con .env conla conexion a la db
+4. pnpm prisma migrate dev
+5. para desarrollo ejecutar seed ``pnpm prisma migrate dev``
+5. para desarrollo ejecutar client ``pnpm prisma generate``
+6. ```pnpm prisma db seed```
+6. pnpm run dev
+````
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
