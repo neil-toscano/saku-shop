@@ -35,7 +35,7 @@ export default async function ProductsPage({
           Nuevo producto
         </Link>
       </div>
-      <div className="mb-10 overflow-x-auto">
+      <div className="mb-10 w-full overflow-x-auto">
         <table className="min-w-full">
           <thead className="bg-gray-200 border-b border-gray-300">
             <tr>
@@ -130,6 +130,8 @@ export default async function ProductsPage({
             ))}
           </tbody>
         </table>
+      </div>
+      <div className="mt-4">
         <Pagination totalPages={totalPages!} />
       </div>
     </>

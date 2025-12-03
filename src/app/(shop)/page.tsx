@@ -33,7 +33,11 @@ export default async function Shop({
 
   return (
     <>
-      <Title title="Tienda" subtitle="Todos los productos" className="mb-2" />
+      <Title
+        title="Tienda"
+        subtitle="Todos los productos"
+        className="mb-2 px-2 md:px-0"
+      />
       <ProductGrid products={products} />
 
       <Pagination totalPages={totalPages!} />

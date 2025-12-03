@@ -1,5 +1,5 @@
 "use client";
-import { QuantitySelector, SizeSelector } from "@/components";
+import { DrawerDialogCart, QuantitySelector, SizeSelector } from "@/components";
 import { Product, Size } from "@/interfaces";
 import { useCartStore } from "@/store";
 import { useState } from "react";
@@ -9,6 +9,15 @@ interface Props {
 }
 
 export const AddToCart = ({ product }: Props) => {
+  const [openCartModal, setOpenCartModal] = useState(false);
+  const [productCartDialog, setProductCartDialog] = useState({
+    title: product.title,
+    price: product.price,
+    quantity: 1,
+    image: product.images[0],
+    size: "",
+  });
+
   const addProduct = useCartStore((state) => state.addProductToCart);
 
   const [size, setSize] = useState<Size | undefined>();
@@ -29,6 +38,13 @@ export const AddToCart = ({ product }: Props) => {
       title: product.title,
       image: product.images[0],
     });
+
+    setOpenCartModal(true);
+    setProductCartDialog((value) => ({
+      ...value,
+      quantity: quantity,
+      size: size,
+    }));
 
     setSendForm(false);
     setQuantity(1);
@@ -57,6 +73,12 @@ export const AddToCart = ({ product }: Props) => {
             </span>
           </div>
         )}
+
+      <DrawerDialogCart
+        open={openCartModal}
+        setOpen={setOpenCartModal}
+        product={productCartDialog}
+      />
 
       <button
         onClick={() => addTocart()}

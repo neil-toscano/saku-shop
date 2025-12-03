@@ -14,9 +14,9 @@ export default async function OrdersPage() {
   }
   return (
     <>
-      <Title title="Orders" />
+      <Title title="Órdenes" />
 
-      <div className="mb-10">
+      <div className="mb-10 w-full overflow-x-auto">
         <table className="min-w-full">
           <thead className="bg-gray-200 border-b border-gray-300">
             <tr>
@@ -92,10 +92,7 @@ export default async function OrdersPage() {
                 </td>
 
                 <td className="text-sm text-gray-900 font-light px-6 ">
-                  <Link
-                    href={`/orders/${order.id}`}
-                    className="hover:underline"
-                  >
+                  <Link href={`/orders/${order.id}`} className="underline">
                     Ver orden
                   </Link>
                 </td>

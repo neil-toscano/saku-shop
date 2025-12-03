@@ -11,7 +11,7 @@ export default async function ShopLayout({
     <main className="min-h-screen ">
       <TopMenu />
       <Sidebar session={session} />
-      <div className="px-0 sm:px-10 ">{children}</div>
+      <div className="px-1 sm:px-10 ">{children}</div>
       <Footer />
     </main>
   );

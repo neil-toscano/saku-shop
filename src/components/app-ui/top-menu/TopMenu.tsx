@@ -5,7 +5,11 @@ import { useCartStore, useUIStore } from "@/store";
 import useStore from "@/store/useStore";
 
 import Link from "next/link";
-import { IoCartOutline, IoSearchOutline } from "react-icons/io5";
+import {
+  IoCartOutline,
+  IoPersonCircleOutline,
+  IoSearchOutline,
+} from "react-icons/io5";
 
 export const TopMenu = () => {
   const openSidebar = useUIStore((state) => state.openSideMenu);
@@ -61,9 +65,9 @@ export const TopMenu = () => {
 
         <button
           onClick={openSidebar}
-          className="m-2 p-2 rounded-md transition-all hover:bg-gray-100"
+          className="m-2 rounded-md transition-all hover:bg-gray-100 cursor-pointer"
         >
-          Menú
+          <IoPersonCircleOutline size={30} />
         </button>
       </div>
     </nav>

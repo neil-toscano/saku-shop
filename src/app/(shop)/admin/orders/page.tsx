@@ -19,7 +19,7 @@ export default async function OrdersPage() {
     <>
       <Title title="Todas las órdenes" />
 
-      <div className="mb-10">
+      <div className="mb-10 w-full overflow-x-auto">
         <table className="min-w-full">
           <thead className="bg-gray-200 border-b border-gray-300">
             <tr>
