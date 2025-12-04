@@ -1,11 +1,13 @@
 "use client";
 
+import { Spinner } from "@/components/ui/spinner";
 import { useCartStore } from "@/store";
 import useStore from "@/store/useStore";
 import { currencyFormat } from "@/utils";
+import clsx from "clsx";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useShallow } from "zustand/react/shallow";
 
 export const OrderSummary = () => {
@@ -42,6 +44,7 @@ export const OrderSummary = () => {
    * ============================================================================
    */
   const router = useRouter();
+  const [isChecking, setIsChecking] = useState(false);
 
   const summaryInformation = useStore(
     useCartStore,
@@ -79,10 +82,15 @@ export const OrderSummary = () => {
 
       <div className="mt-5 mb-2 w-full">
         <Link
-          className="flex btn-primary justify-center"
           href={"/checkout/address"}
+          onClick={() => setIsChecking(true)}
+          className={clsx("flex justify-center items-center gap-2", {
+            "btn-primary cursor-pointer": !isChecking,
+            "btn-loading": isChecking,
+          })}
         >
-          Procesar compra
+          {isChecking && <Spinner />}
+          {isChecking ? "Cargando..." : "Procesar compra"}
         </Link>
       </div>
     </div>

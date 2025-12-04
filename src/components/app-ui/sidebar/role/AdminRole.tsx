@@ -18,7 +18,7 @@ export const AdminRole = ({ closeSidebar }: Props) => {
         className="flex items-center mt-2 p-2 hover:bg-gray-100 rounded transition-all"
       >
         <IoShirtOutline size={30} />
-        <span className="ml-3 text-xl">Products</span>
+        <span className="ml-3 text-xl">Productos</span>
       </Link>
 
       <Link

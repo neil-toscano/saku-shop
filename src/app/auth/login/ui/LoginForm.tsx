@@ -23,7 +23,7 @@ export const LoginForm = () => {
           className="px-5 py-2 border bg-gray-200 rounded mb-5"
           name="email"
           type="email"
-          value={"test3@gmail.com"}
+          // value={"test3@gmail.com"}
         />
 
         <label htmlFor="password">Contraseña</label>
@@ -31,7 +31,7 @@ export const LoginForm = () => {
           className="px-5 py-2 border bg-gray-200 rounded mb-5"
           name="password"
           type="password"
-          value={"12345678"}
+          // value={"12345678"}
         />
 
         <div

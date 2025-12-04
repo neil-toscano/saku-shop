@@ -4,11 +4,11 @@ import { useUIStore } from "@/store";
 import clsx from "clsx";
 import Link from "next/link";
 import {
-  IoCallOutline,
   IoCartOutline,
   IoCloseOutline,
   IoLogInOutline,
   IoLogOutOutline,
+  IoLogoWhatsapp,
   IoSearchOutline,
 } from "react-icons/io5";
 import { UserRole } from "./role/UserRole";
@@ -71,28 +71,30 @@ export const Sidebar = ({ session }: { session: Session | null }) => {
         </div>
         {/* menu */}
 
+        {session?.user.role === "user" && (
+          <UserRole closeSidebar={closeSidebar} />
+        )}
+
+        {session?.user.role === "admin" && (
+          <AdminRole closeSidebar={closeSidebar} />
+        )}
+
         <Link
           href={"/cart"}
+          onClick={closeSidebar}
           className="flex items-center mt-2 p-2 hover:bg-gray-100 rounded transition-all"
         >
           <IoCartOutline size={30} />
           <span className="ml-3 text-xl">Carrito</span>
         </Link>
-
         <Link
-          href={"/cart"}
+          href="https://wa.me/51992837549?text=consulta"
+          target="_blank"
           className="flex items-center mt-2 p-2 hover:bg-gray-100 rounded transition-all"
         >
-          <IoCallOutline size={30} />
+          <IoLogoWhatsapp size={30} />
           <span className="ml-3 text-xl">Contáctanos</span>
         </Link>
-
-        {session?.user.role === "user" && (
-          <UserRole closeSidebar={closeSidebar} />
-        )}
-        {session?.user.role === "admin" && (
-          <AdminRole closeSidebar={closeSidebar} />
-        )}
 
         {/* line separator */}
         <div className="w-full h-px bg-gray-200 my-10"></div>

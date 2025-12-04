@@ -23,8 +23,8 @@ export default async function AddressPage() {
     phone: address?.phone,
   };
   return (
-    <div className="flex flex-col sm:justify-center sm:items-center mb-72 px-10 sm:px-0">
-      <div className="w-full  xl:w-[1000px] flex flex-col justify-center text-left">
+    <div className="flex flex-col sm:justify-center sm:items-center mb-72 px-2 sm:px-0 ">
+      <div className="w-full  xl:w-[1000px] flex flex-col justify-center text-left bg-stone-50 rounded-sm p-2">
         <Title title="Dirección" subtitle="Dirección de entrega" />
 
         <AddressForm

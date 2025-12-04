@@ -22,7 +22,7 @@ export const UserRole = ({ closeSidebar }: Props) => {
         className="flex items-center mt-2 p-2 hover:bg-gray-100 rounded transition-all"
       >
         <IoTicketOutline size={30} />
-        <span className="ml-3 text-xl">órdenes</span>
+        <span className="ml-3 text-xl">Mis Compras</span>
       </Link>
     </div>
   );

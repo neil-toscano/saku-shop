@@ -2,11 +2,13 @@
 
 import { setUserAddress } from "@/actions";
 import { deleteUserAddress } from "@/actions/address/delete-user-address";
+import { Spinner } from "@/components/ui/spinner";
 import { Address, Country } from "@/interfaces";
 import { useAddressStore } from "@/store";
+import clsx from "clsx";
 import { Session } from "next-auth";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useShallow } from "zustand/react/shallow";
 
@@ -35,6 +37,8 @@ export const AddressForm = ({
 }: Props) => {
   const router = useRouter();
 
+  const [isPlacingAddress, setIsPlacingAddress] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -57,6 +61,7 @@ export const AddressForm = ({
   }, [address, reset]);
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    setIsPlacingAddress(true);
     //local storage
     setAddress({
       address1: data.address1,
@@ -227,14 +232,18 @@ export const AddressForm = ({
       </div>
       <div className="flex flex-col mb-2 sm:mt-10">
         <button
-          className="cursor-pointer btn-primary flex w-full sm:w-1/2 justify-center "
           type="submit"
-          //   className={clsx({
-          //     "btn-primary": isValid,
-          //     "btn-disable": !isValid,
-          //   })}
+          disabled={isPlacingAddress}
+          className={clsx(
+            "flex w-full sm:w-1/2 justify-center items-center gap-2 ",
+            {
+              "btn-primary cursor-pointer": !isPlacingAddress,
+              "btn-loading cursor-not-allowed": isPlacingAddress,
+            }
+          )}
         >
-          Siguiente
+          {isPlacingAddress && <Spinner />}
+          {isPlacingAddress ? "Cargando..." : "Siguiente"}
         </button>
       </div>
     </form>
