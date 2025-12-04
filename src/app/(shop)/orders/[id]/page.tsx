@@ -71,7 +71,9 @@ export default async function OrdersByIdPage({
                   className="w-[100px] h-[100px] mr-5 rounded"
                 />
                 <div>
-                  <p>{order.product.title}</p>
+                  <p>
+                    {order.product.title}, {order.size}
+                  </p>
                   <p>
                     ${order.price} x {order.quantity}
                   </p>
