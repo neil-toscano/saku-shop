@@ -10,6 +10,8 @@ const useWindowWidth = (): number => {
       setWidth(window.innerWidth);
     };
 
+    handleResize();
+
     window.addEventListener("resize", handleResize);
 
     return () => {

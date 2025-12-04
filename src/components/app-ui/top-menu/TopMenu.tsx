@@ -10,8 +10,14 @@ import {
   IoPersonCircleOutline,
   IoSearchOutline,
 } from "react-icons/io5";
+import StateAnimations from "./TabItem";
+import { Button } from "@/components/ui/button";
+import { Menu } from "lucide-react";
+import { useState } from "react";
+import { SheetDemo } from "./SheetLeft";
 
 export const TopMenu = () => {
+  const [openSheet, setOpenSheet] = useState(false);
   const openSidebar = useUIStore((state) => state.openSideMenu);
   // const totalItems = useCartStore((state) => state.getTotalItems());
   const totalItems = useStore(useCartStore, (state) => state.getTotalItems());
@@ -20,15 +26,28 @@ export const TopMenu = () => {
     <nav className="flex px-5 justify-between items-center w-full">
       {/* LOGO */}
       <div className={`${montserratAlternate.className}`}>
-        <Link href={"/"}>
+        <Button
+          onClick={() => setOpenSheet(true)}
+          variant="outline"
+          size="icon"
+          aria-label="Submit"
+          className="cursor-pointer mr-4 hover:bg-neutral-200"
+        >
+          <Menu />
+        </Button>
+        <SheetDemo onOpenChange={setOpenSheet} open={openSheet} />
+
+        <Link href={"/"} className="hover:bg-neutral-200 rounded-md p-2">
           <span className="antialiased font-bold">SAKU</span>
           <span> | Shop</span>
         </Link>
       </div>
 
       {/* CENTER MENU */}
+
       <div className="hidden sm:block">
-        <Link
+        <StateAnimations />
+        {/* <Link
           className="m-2 p2 rounded-md transition-all hover:bg-gray-100"
           href={"/gender/men"}
         >
@@ -45,7 +64,7 @@ export const TopMenu = () => {
           href={"/gender/kid"}
         >
           Niños
-        </Link>
+        </Link> */}
       </div>
       {/* SEARCH CART, MENU */}
       <div className="flex items-center">

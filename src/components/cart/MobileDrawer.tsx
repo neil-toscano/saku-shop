@@ -40,7 +40,7 @@ export function DrawerDialogCart({ open, setOpen, product }: Props) {
   const width = useWindowWidth();
 
   const isDesktop = width > 768 ? true : false;
-
+  console.log(width, "s");
   if (isDesktop) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
