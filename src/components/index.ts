@@ -21,3 +21,5 @@ export * from "./paypal/PaypalButton";
 export * from "./orders/OrderStatus";
 
 export * from "./cart/MobileDrawer";
+
+export * from "./progress/StepProgress";

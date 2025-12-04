@@ -4,14 +4,16 @@ import { LoginForm } from "./ui/LoginForm";
 
 export default function Auth() {
   return (
-    <main className="flex flex-col min-h-screen pt-32 sm:pt-52">
-      <h1 className={`${montserratAlternate.className} text-4xl mb-5`}>
-        Ingresar
-      </h1>
+    <main className="flex flex-col min-h-screen justify-center items-center">
+      <div className="bg-stone-100 p-2 rounded mb-5 shadow-xl">
+        <h1 className={`${montserratAlternate.className} text-4xl mb-5`}>
+          Ingresar
+        </h1>
 
-      <Suspense fallback={<div>Cargando...</div>}>
-        <LoginForm />
-      </Suspense>
+        <Suspense fallback={<div>Cargando...</div>}>
+          <LoginForm />
+        </Suspense>
+      </div>
     </main>
   );
 }

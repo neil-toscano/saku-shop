@@ -3,6 +3,7 @@ import {
   OrderStatus,
   PaypalButton,
   ProductImageCustom,
+  StepProgress,
   Title,
 } from "@/components";
 import { currencyFormat } from "@/utils";
@@ -31,6 +32,7 @@ export default async function OrdersByIdPage({
   return (
     <div className="flex justify-center items-center mb-72 pr-2 pl-4 md:px-10">
       <div className="flex flex-col w-[1000px]">
+        <StepProgress current={4} total={4} />
         <Title title={`Orden #${id.split("-").pop()}`} />
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 items-start">
           {/* Carrito */}

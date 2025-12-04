@@ -67,7 +67,7 @@ export default async function ProductPage({
         />
       </div>
       {/* detalles */}
-      <div className="col-span-1 px-5">
+      <div className="col-span-1 px-5 ">
         <StockLabel slug={product.slug} />
         <h1
           className={`${montserratAlternate.className} antialiased font-bold text-xl`}

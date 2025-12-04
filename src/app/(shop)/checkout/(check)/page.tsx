@@ -1,4 +1,4 @@
-import { Title } from "@/components";
+import { StepProgress, Title } from "@/components";
 import Link from "next/link";
 import { ProductsInCart } from "./ui/ProductsInCart";
 import { PlaceOrder } from "./ui/PlaceOrder";
@@ -7,6 +7,7 @@ export default function CheckoutPage() {
   return (
     <div className="flex justify-center items-center mb-72 pr-2 pl-4 md:px-10">
       <div className="flex flex-col w-[1000px]">
+        <StepProgress current={3} total={4} />
         <Title title="Verificar orden" />
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 items-start">
           {/* Carrito */}

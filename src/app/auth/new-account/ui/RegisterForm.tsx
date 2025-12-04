@@ -1,8 +1,11 @@
 "use client";
 import { signup } from "@/actions/auth/register";
+import { Spinner } from "@/components/ui/spinner";
+import clsx from "clsx";
 import Link from "next/link";
-import { startTransition, useActionState } from "react";
+import { startTransition, useActionState, useEffect } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { toast } from "sonner";
 
 type Inputs = {
   name: string;
@@ -19,6 +22,15 @@ export const RegisterForm = () => {
     formState: { errors },
   } = useForm<Inputs>();
 
+  useEffect(() => {
+    if (state?.errors.email) {
+      toast.error(state.errors.email, {
+        position: "top-center",
+        style: { backgroundColor: "#FB2C36", color: "white" },
+      });
+    }
+  }, [state]);
+
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     const formData = new FormData();
     formData.append("name", data.name);
@@ -33,14 +45,14 @@ export const RegisterForm = () => {
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col">
-          <label htmlFor="email">Nombre completo</label>
+          <label htmlFor="name">Nombre completo</label>
           <input
             className="px-5 py-2 border bg-gray-200 rounded mb-2"
             type="text"
-            defaultValue="neil"
             {...register("name", {
               minLength: 3,
               maxLength: 50,
+              required: true,
             })}
           />
 
@@ -57,13 +69,11 @@ export const RegisterForm = () => {
           <input
             className="px-5 py-2 border bg-gray-200 rounded mb-5"
             type="email"
+            required={true}
             {...register("email", { required: true })}
           />
           {errors.email && (
             <span className="text-red-700">El email es requrido</span>
-          )}
-          {state?.errors?.email && (
-            <p className="text-red-700">{state.errors.email}</p>
           )}
 
           <label htmlFor="email" className="mt-5">
@@ -72,7 +82,6 @@ export const RegisterForm = () => {
           <input
             className="px-5 py-2 border bg-gray-200 rounded mb-5"
             type="text"
-            defaultValue="12345678"
             {...register("password", { minLength: 8, required: true })}
           />
           {errors.password && (
@@ -89,7 +98,15 @@ export const RegisterForm = () => {
             </div>
           )}
 
-          <button className="btn-primary mt-5">Crear cuenta</button>
+          <button
+            className={clsx("flex justify-center items-center gap-2 mt-5", {
+              "btn-primary cursor-pointer": !pending,
+              "btn-loading": pending,
+            })}
+          >
+            {pending && <Spinner />}
+            {pending ? "Cargando..." : "Crear cuenta"}
+          </button>
 
           {/* divisor l ine */}
           <div className="flex items-center my-5">
@@ -98,7 +115,10 @@ export const RegisterForm = () => {
             <div className="flex-1 border-t border-gray-500"></div>
           </div>
 
-          <Link href="/auth/login" className="btn-secondary text-center">
+          <Link
+            href="/auth/login"
+            className="btn-secondary text-center border-2 border-black"
+          >
             Ingresar
           </Link>
         </div>
