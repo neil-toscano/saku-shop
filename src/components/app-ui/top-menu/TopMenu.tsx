@@ -23,7 +23,7 @@ export const TopMenu = () => {
   const totalItems = useStore(useCartStore, (state) => state.getTotalItems());
 
   return (
-    <nav className="flex px-5 justify-between items-center w-full">
+    <nav className="sticky z-8 top-0 left-0 w-ull flex px-5 justify-between items-center bg-white">
       {/* LOGO */}
       <div className={`${montserratAlternate.className}`}>
         <Button

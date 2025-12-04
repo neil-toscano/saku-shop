@@ -40,7 +40,7 @@ export default function SegmentedButtons() {
         <Link key={idx} href={item.url}>
           <button
             onMouseEnter={() => setSelected(idx)}
-            className="cursor-pointer relative z-10 w-[100px] py-2 text-center text-black font-medium"
+            className="cursor-pointer relative z-9 w-[100px] py-2 text-center text-black font-medium"
           >
             {item.label}
           </button>
