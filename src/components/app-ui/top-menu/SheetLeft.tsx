@@ -34,7 +34,7 @@ export function SheetDemo({ open, onOpenChange }: Props) {
           <SheetTitle>
             <Link href="/" className="flex items-center justify-center">
               <span className="antialiased font-bold tracking-wide">SAKU</span>
-              <span className="opacity-70"> | Shop</span>
+              <span className="opacity-70"> | Shops</span>
             </Link>
           </SheetTitle>
         </SheetHeader>
