@@ -7,7 +7,7 @@ const authRoutes = ["/auth/login", "/auth/new-account"];
 export const authConfig = {
   session: {
     strategy: "jwt",
-    maxAge: 10 * 24 * 60 * 60, // 8 horas
+    maxAge: 8 * 60 * 60, // 8 horas
     updateAge: 86400,
   },
   pages: {
