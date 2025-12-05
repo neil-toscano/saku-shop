@@ -5,6 +5,14 @@ const adminRoutes = ["/admin"];
 const authRoutes = ["/auth/login", "/auth/new-account"];
 
 export const authConfig = {
+  session: {
+    strategy: "jwt",
+    maxAge: 8 * 60 * 60, // 8 horas
+    updateAge: 86400,
+  },
+  jwt: {
+    maxAge: 8 * 60 * 60,
+  },
   pages: {
     signIn: "/auth/login",
     newUser: "/auth/new-account",
@@ -16,6 +24,7 @@ export const authConfig = {
         token.image = user.image ?? undefined;
         token.role = user.role;
       }
+
       return token;
     },
     session({ session, token }) {
