@@ -23,6 +23,7 @@ import Image from "next/image";
 import { currencyFormat } from "@/utils";
 import Link from "next/link";
 import useWindowWidth from "@/hooks/useWindowWidth";
+import { ProductImageCustom } from "../product/image/ProductImage";
 
 interface Props {
   open: boolean;
@@ -60,9 +61,9 @@ export function DrawerDialogCart({ open, setOpen, product }: Props) {
 
           <div className="grid grid-cols-12 gap-2 text-gray-800 mt-5">
             <div className="col-span-4 flex items-center justify-center ">
-              <Image
+              <ProductImageCustom
                 alt={product.title}
-                src={`/products/${product.image}`}
+                src={product.image}
                 className="object-contain"
                 width={80}
                 height={80}
@@ -113,9 +114,9 @@ export function DrawerDialogCart({ open, setOpen, product }: Props) {
 
         <div className="grid grid-cols-12 gap-2 text-gray-800 mt-5 px-2">
           <div className="col-span-4 flex items-center justify-center ">
-            <Image
+            <ProductImageCustom
               alt={product.title}
-              src={`/products/${product.image}`}
+              src={product.image}
               className="object-contain"
               width={80}
               height={80}
